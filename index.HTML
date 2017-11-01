@@ -385,7 +385,7 @@ a:hover {
           }
         }]
       };
-  };  
+  };
   map.on('load', function(e) {
   // Add the data to your map as a layer
 
@@ -403,6 +403,43 @@ a:hover {
     }
   });
 });
+// Initialize the list
+buildLocationList(stores);
+});
+
+
+function buildLocationList(data) {
+for (i = 0; i < data.features.length; i++) {
+  // Create an array of all the stores and their properties
+  var currentFeature = data.features[i];
+  // Shorten data.feature.properties to just `prop` so we're not
+  // writing this long form over and over again.
+  var prop = currentFeature.properties;
+  // Select the listing container in the HTML
+  var listings = document.getElementById('listings');
+  // Append a div with the class 'item' for each store
+  var listing = listings.appendChild(document.createElement('div'));
+  listing.className = 'item';
+  listing.id = "listing-" + i;
+
+  // Create a new link with the class 'title' for each store
+  // and fill it with the store address
+  var link = listing.appendChild(document.createElement('a'));
+  link.href = '#';
+  link.className = 'title';
+  link.dataPosition = i;
+  link.innerHTML = prop.address;
+
+  // Create a new div with the class 'details' for each store
+  // and fill it with the city and phone number
+  var details = listing.appendChild(document.createElement('div'));
+  details.innerHTML = prop.city;
+  if (prop.phone) {
+    details.innerHTML += ' &middot; ' + prop.phoneFormatted;
+  }
+
+}
+}
     </script>
   </body>
 </html>
