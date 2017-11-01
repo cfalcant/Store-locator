@@ -1,7 +1,19 @@
+<html>
 <head>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
-</head>
-
 <div class='sidebar pad2'>Listing</div>
 <div id='map' class='map pad2'>Map</div>
+</head>
+<body>
+  <div id='map' style='width: 400px; height: 300px;'></div>
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY2ZhbGNhbnQiLCJhIjoiY2o5Z2UxaHRkMngzaDMzbnJ5MDd6ZmxnMiJ9.qadx8NPsZFFFlsI7cCLwqg';
+  var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v9'
+  });
+  </script>
+
+</body>
+</html>
