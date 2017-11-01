@@ -42,11 +42,30 @@
   <body>
     <div class='sidebar pad2'>Listing</div>
     <div id='map' class='map pad2'>Map</div>
+
+  <script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2ZhbGNhbnQiLCJhIjoiY2o5Z2UxaHRkMngzaDMzbnJ5MDd6ZmxnMiJ9.qadx8NPsZFFFlsI7cCLwqg';
+//The following adds the map to the page
+var map = new mapboxgl.Map({
+  // container id specified in the HTML
+  container: 'map',
+  // style URL
+  style: 'mapbox://styles/mapbox/light-v9'
+  // initial position in [lon, lat] format
+  center: [-77.034084, 38.909671],
+  // initial zoom
+  zoom: 14
+});
+
+var stores = {
+  
+}
   </body>
 </html>
+
+
   <div id='map' style='width: 400px; height: 300px;'></div>
-  <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiY2ZhbGNhbnQiLCJhIjoiY2o5Z2UxaHRkMngzaDMzbnJ5MDd6ZmxnMiJ9.qadx8NPsZFFFlsI7cCLwqg';
+
   var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v9'
