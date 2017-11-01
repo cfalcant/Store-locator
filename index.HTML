@@ -58,19 +58,31 @@ var map = new mapboxgl.Map({
 });
 
 var stores = {
-  
-}
-  </body>
-</html>
-
+  // data from sweetgreen.geojson, downloaded above
+};
+map.on('load', function(e) {
+  // Add the data to your map as a layer
+  map.addLayer({
+    id: 'locations',
+    type: 'symbol',
+    // Add a GeoJSON source containing place coordinates and information.
+    source: {
+      type: 'geojson',
+      data: stores
+    },
+    layout: {
+      'icon-image': 'restaurant-15',
+      'icon-allow-overlap': true,
+    }
+  });
+});
 
   <div id='map' style='width: 400px; height: 300px;'></div>
 
   var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v9'
-  });
-  </script>
-
-</body>
+    });
+    </script>
+  </body>
 </html>
